@@ -6,6 +6,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'application'
+apply plugin: 'groovy'
 
 group = 'fr.upmc.help42'
 version = '1.0-SNAPSHOT'
@@ -43,6 +44,11 @@ dependencies {
     // testing
     testCompile 'junit:junit:4.11'
     testCompile 'org.assertj:assertj-core:1.7.0'
+
+    // GROOVY MODE ON
+    compile "org.codehaus.groovy:groovy-all:2.4.1"
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+
 }
 
 
