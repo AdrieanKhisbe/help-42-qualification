@@ -1,0 +1,24 @@
+*~
+
+
+# Buyild
+*.class
+/build
+/bin
+/target
+
+
+
+# ¤> fuck apple
+.DS_Store
+.gradle/
+
+
+
+
+# I have no idea
+**/.idea/workspace.xml
+**/.idea/libraries
+
+.project
+.classpath
