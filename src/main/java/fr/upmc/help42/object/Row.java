@@ -1,5 +1,7 @@
 package fr.upmc.help42.object;
 
+import java.util.Arrays;
+
 public class Row {
 
 	private int nbFree;
@@ -23,7 +25,8 @@ public class Row {
 		return servers;
 	}
 
-	public void setUnavailable(int index, UnavailableLocation uL) throws Exception {
+	public void setUnavailable(int index, UnavailableLocation uL)
+			throws Exception {
 		servers[index] = uL;
 		nbFree--;
 		if (nbFree < 0)
@@ -46,6 +49,12 @@ public class Row {
 		}
 		nbFree -= serv.getSize();
 
+	}
+
+	@Override
+	public String toString() {
+		return "Row [nbFree=" + nbFree + ", servers="
+				+ Arrays.toString(servers) + "]";
 	}
 
 }

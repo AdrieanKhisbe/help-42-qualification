@@ -1,17 +1,15 @@
 package fr.upmc.help42.io;
 
-import com.google.common.primitives.Ints;
-import fr.upmc.help42.object.ServerAllocation;
-import fr.upmc.help42.problem.DatacenterAllocation;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.List;
+
+import fr.upmc.help42.object.ServerAllocation;
+import fr.upmc.help42.problem.DatacenterAllocation;
 
 /**
  * Class to serialize our solution
@@ -31,7 +29,7 @@ public class SolutionSerializer {
                 if (serv.getGroup() < 0) {
                     pw.println("x");
                 } else {
-                    pw.format("%d %d %d", serv.getRow(), serv.getIrow(), serv.getGroup());
+                    pw.format("%d %d %d\n", serv.getRow(), serv.getIrow(), serv.getGroup());
                 }
             }
         }

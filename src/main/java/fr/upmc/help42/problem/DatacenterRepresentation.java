@@ -14,44 +14,48 @@ import java.util.List;
  */
 public class DatacenterRepresentation {
 
-    //FIXME DOC
-    
-    public  final Integer R;
-    public  final Integer S;
-    public  final Integer U;
-    public  final Integer P;
-    public  final Integer M;
-    
-    public final List<UnavailableLocation> unavailableCases;
-    public final List<Server> servers;
+	// FIXME DOC
 
-    
-    public DatacenterRepresentation(Integer r, Integer s, Integer u, Integer p, Integer m) {
-        R = r;
-        S = s;
-        U = u;
-        P = p;
-        M = m;
-        unavailableCases = Lists.newArrayList();
-        servers = Lists.newArrayList();
-    }
+	public final Integer R;
+	public final Integer S;
+	public final Integer U;
+	public final Integer P;
+	public final Integer M;
 
+	public final List<UnavailableLocation> unavailableCases;
+	public final List<Server> servers;
 
-    public void addUnavailableLocation(int r, int s) {
-        unavailableCases.add(new UnavailableLocation(r, s));
+	public DatacenterRepresentation(Integer r, Integer s, Integer u, Integer p,
+			Integer m) {
+		R = r;
+		S = s;
+		U = u;
+		P = p;
+		M = m;
+		unavailableCases = Lists.newArrayList();
+		servers = Lists.newArrayList();
+	}
 
-    }
+	public void addUnavailableLocation(int r, int s) {
+		unavailableCases.add(new UnavailableLocation(r, s));
 
+	}
 
-    public void addServer(int id, int capacity, int size) {
-        Preconditions.checkArgument(id >= 0 && capacity >= 0 && size >= 0, "valids value");
-        Server s = new Server(id, capacity, size);
-        addServer(s);
-    }
+	public void addServer(int id, int capacity, int size) {
+		Preconditions.checkArgument(id >= 0 && capacity >= 0 && size >= 0,
+				"valids value");
+		Server s = new Server(id, capacity, size);
+		addServer(s);
+	}
 
-    public void addServer(Server s) {
-        servers.add(s);
-    }
-    
-    
+	public void addServer(Server s) {
+		servers.add(s);
+	}
+
+	@Override
+	public String toString() {
+		return "DatacenterRepresentation [R=" + R + ", S=" + S + ", U=" + U
+				+ ", P=" + P + ", M=" + M + "]";
+	}
+
 }

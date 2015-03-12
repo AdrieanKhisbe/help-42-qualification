@@ -24,6 +24,7 @@ public class Algo1 implements DatacenterAllocator {
 	@Override
 	public DatacenterAllocation resolve(DatacenterRepresentation dc)
 			throws Exception {
+		System.out.println(dc);
 		serverAlloc = new ArrayList<ServerAllocation>();
 		for (Server s : dc.servers)
 			serverAlloc.add(new ServerAllocation(s, -1, -1, -1));
@@ -31,6 +32,14 @@ public class Algo1 implements DatacenterAllocator {
 		initRow(dc.R, dc.S, dc.unavailableCases);
 		locate(serverAlloc);
 		createGroup(dc.P);
+		// for(int i = 0;i<rows.length;i++) {
+		// System.out.println(rows[i]);
+		// }
+		// for (int i = 0; i < pools.length; i++)
+		// System.out.println(pools[i]);
+		for (int i = 0; i < serverAlloc.size(); i++) {
+			System.out.println(serverAlloc.get(i));
+		}
 		return new DatacenterAllocation(serverAlloc);
 	}
 
@@ -99,11 +108,14 @@ public class Algo1 implements DatacenterAllocator {
 					pools[indexPools].addServer((Server) location);
 					ServerAllocation serverAllocation = null;
 					for (ServerAllocation serverA : serverAlloc) {
-						if (serverA.getServer().equals(location))
+						if (serverA.getServer() == location) {
 							serverAllocation = serverA;
+							break;
+						}
 					}
-					if (serverAllocation != null)
+					if (serverAllocation != null) {
 						serverAllocation.setGroup(indexPools);
+					}
 					indexPools = indexPools++ % pools.length;
 					i += ((Server) location).getSize();
 				} else {

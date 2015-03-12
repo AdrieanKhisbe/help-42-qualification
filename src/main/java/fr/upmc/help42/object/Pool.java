@@ -10,8 +10,8 @@ public class Pool {
 	private int id;
 	private int minCapacity;
 	private List<Server> servers;
-	
-	public Pool(int id){
+
+	public Pool(int id) {
 		this.id = id;
 		servers = new ArrayList<Server>();
 		minCapacity = Integer.MAX_VALUE;
@@ -28,11 +28,18 @@ public class Pool {
 	public List<Server> getServers() {
 		return servers;
 	}
-	
+
 	public void addServer(Server serv) {
 		servers.add(serv);
-		
+
 		if (minCapacity > serv.getCapacity())
 			minCapacity = serv.getCapacity();
+	}
+
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		for (Server serv : servers)
+			s.append(serv);
+		return s.toString();
 	}
 }
