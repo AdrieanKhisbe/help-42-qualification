@@ -1,38 +1,37 @@
 package fr.upmc.help42.object;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pool {
 	private int id;
 	private int minCapacity;
-	private ArrayList<Server> servers;
+	private List<Server> servers;
 	
-	public Pool(){
-		
+	public Pool(int id){
+		this.id = id;
+		servers = new ArrayList<Server>();
+		minCapacity = Integer.MAX_VALUE;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public int getMinCapacity() {
 		return minCapacity;
 	}
 
-	public void setMinCapacity(int minCapacity) {
-		this.minCapacity = minCapacity;
-	}
-
-	public ArrayList<Server> getServers() {
+	public List<Server> getServers() {
 		return servers;
 	}
-
-	public void setServers(ArrayList<Server> servers) {
-		this.servers = servers;
+	
+	public void addServer(Server serv) {
+		servers.add(serv);
+		
+		if (minCapacity > serv.getCapacity())
+			minCapacity = serv.getCapacity();
+		serv.setMyPool(this);
 	}
 
 }
