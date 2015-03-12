@@ -1,15 +1,14 @@
 package fr.upmc.help42;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.upmc.help42.io.InputParser;
 import fr.upmc.help42.io.SolutionSerializer;
 import fr.upmc.help42.problem.DatacenterAllocation;
 import fr.upmc.help42.problem.DatacenterAllocator;
 import fr.upmc.help42.problem.DatacenterRepresentation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 /**
  * Main classe pour lancer EVERYTHING 
@@ -21,7 +20,7 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
 	
-	public static void main (String args[]) throws IOException {
+	public static void main (String args[]) throws Exception {
 		
         String inPath = null, outPath = null;
 		
