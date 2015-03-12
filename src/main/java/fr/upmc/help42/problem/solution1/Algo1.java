@@ -27,11 +27,11 @@ public class Algo1 implements DatacenterAllocator {
 		serverAlloc = new ArrayList<ServerAllocation>();
 		for (Server s : dc.servers)
 			serverAlloc.add(new ServerAllocation(s, -1, -1, -1));
-		
+
 		initRow(dc.R, dc.S, dc.unavailableCases);
 		locate(serverAlloc);
 		createGroup(dc.P);
-		return null;
+		return new DatacenterAllocation(serverAlloc);
 	}
 
 	private void initRow(int R, int S,
@@ -49,9 +49,12 @@ public class Algo1 implements DatacenterAllocator {
 
 			@Override
 			public int compare(ServerAllocation o1, ServerAllocation o2) {
-				return (o1.getServer().getCapacity() > o2.getServer().getCapacity()
-						|| o1.getServer().getCapacity() == o2.getServer().getCapacity()
-						&& o1.getServer().getSize() > o2.getServer().getSize() ? 1 : 0);
+				return (o1.getServer().getCapacity() > o2.getServer()
+						.getCapacity()
+						|| o1.getServer().getCapacity() == o2.getServer()
+								.getCapacity()
+						&& o1.getServer().getSize() > o2.getServer().getSize() ? 1
+						: 0);
 			}
 		});
 
@@ -64,9 +67,11 @@ public class Algo1 implements DatacenterAllocator {
 				continue;
 				// TODO
 			} else {
-				for (int j = 0; j < row.getServers().length - server.getServer().getSize(); j++) {
+				for (int j = 0; j < row.getServers().length
+						- server.getServer().getSize(); j++) {
 					boolean possible = true;
-					for (int k = j; k < j + server.getServer().getSize() && possible; k++) {
+					for (int k = j; k < j + server.getServer().getSize()
+							&& possible; k++) {
 						possible &= row.getServers()[k] == null;
 					}
 					if (possible) {
@@ -90,7 +95,13 @@ public class Algo1 implements DatacenterAllocator {
 				Location location = row.getServers()[i];
 				if (location instanceof Server) {
 					pools[indexPools].addServer((Server) location);
-					
+					ServerAllocation serverAllocation = null;
+					for (ServerAllocation serverA : serverAlloc) {
+						if (serverA.getServer().equals(location))
+							serverAllocation = serverA;
+					}
+					if (serverAllocation != null)
+						serverAllocation.setGroup(indexPools);
 					indexPools = indexPools++ % pools.length;
 					i += ((Server) location).getSize();
 				} else {

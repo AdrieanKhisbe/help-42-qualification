@@ -9,19 +9,20 @@ import java.util.List;
  */
 public class DatacenterAllocation {
 
-    List<ServerAllocation> servers;
-    
-    
-    
-    
-    //FIXME: eval method
-    private int score;
+	List<ServerAllocation> servers;
 
-    public int getScore() {
-        return score;
-    }
+	public DatacenterAllocation(List<ServerAllocation> servers) {
+		this.servers = servers;
+	}
 
-    public List<ServerAllocation> getServers() {
-        return servers;
-    }
+	// FIXME: eval method
+	private int score;
+
+	public int getScore() {
+		return score;
+	}
+
+	public List<ServerAllocation> getServers() {
+		return servers;
+	}
 }
