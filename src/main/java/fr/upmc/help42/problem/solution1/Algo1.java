@@ -88,12 +88,14 @@ public class Algo1 implements DatacenterAllocator {
 
 	private void createGroup(int P) {
 		pools = new Pool[P];
+		for (int i = 0; i < P; i++)
+			pools[i] = new Pool(i);
 		int indexPools = 0;
 		for (Row row : rows) {
 			int i = 0;
 			while (i < row.getServers().length) {
 				Location location = row.getServers()[i];
-				if (location instanceof Server) {
+				if (location != null && location instanceof Server) {
 					pools[indexPools].addServer((Server) location);
 					ServerAllocation serverAllocation = null;
 					for (ServerAllocation serverA : serverAlloc) {
