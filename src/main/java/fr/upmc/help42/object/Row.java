@@ -5,7 +5,7 @@ public class Row {
 	
 	private int nbFree;
 
-	private Server[] servers;
+	private Location[] servers;
 	
 	public Row(int nbCases){
 		servers = new Server[nbCases];
@@ -18,7 +18,7 @@ public class Row {
 	public void setNbFree(int nbFree) {
 		this.nbFree = nbFree;
 	}
-	public Server[] getServers() {
+	public Location[] getServers() {
 		return servers;
 	}
 	public void setServers(Server[] servers) {
@@ -26,7 +26,7 @@ public class Row {
 	}
 
 	public void setUnavailable(int index) throws Exception{
-		servers[index] = new UnavailableCase();
+		servers[index] = new UnavailableLocation();
 		nbFree--;
 		if (nbFree < 0)
 			throw new Exception("More free spaces than cases");

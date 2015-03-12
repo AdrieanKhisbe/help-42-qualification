@@ -2,7 +2,7 @@ package fr.upmc.help42.problem;
 
 import com.google.common.collect.Lists;
 import fr.upmc.help42.object.Server;
-import fr.upmc.help42.object.UnavailableCase;
+import fr.upmc.help42.object.UnavailableLocation;
 
 import java.util.List;
 
@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class DatacenterRepresentation {
     
+    
+    
     //FIXME DOC
     
     public  final Integer R;
@@ -21,7 +23,7 @@ public class DatacenterRepresentation {
     public  final Integer P;
     public  final Integer M;
     
-    public final List<UnavailableCase> unavailableCases;
+    public final List<UnavailableLocation> unavailableCases;
     public final List<Server> servers;
 
     
