@@ -1,4 +1,4 @@
-package main;
+package fr.upmc.help42.object;
 
 public class Server {
 	

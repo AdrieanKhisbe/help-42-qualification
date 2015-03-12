@@ -1,8 +1,9 @@
-package main;
+package fr.upmc.help42.object;
 
 public class Row {
 	
 	private int nbFree;
+    private Server[] servers;
 	
 	public int getNbFree() {
 		return nbFree;
@@ -16,6 +17,6 @@ public class Row {
 	public void setServers(Server[] servers) {
 		this.servers = servers;
 	}
-	private Server[] servers;
+
 	
 }
