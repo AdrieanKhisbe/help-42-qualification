@@ -5,6 +5,7 @@ public class Row {
 	
 	private int nbFree;
 
+    //TODO
     private Server[] servers;
 
     public Row(int nbCases){

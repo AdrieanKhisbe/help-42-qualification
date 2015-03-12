@@ -1,8 +1,9 @@
 package fr.upmc.help42.problem;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-import fr.upmc.help42.object.tmp.Server;
-import fr.upmc.help42.object.tmp.UnavailableLocation;
+import fr.upmc.help42.object.Server;
+import fr.upmc.help42.object.UnavailableLocation;
 
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class DatacenterRepresentation {
 
 
     public void addServer(int id, int capacity, int size) {
+        Preconditions.checkArgument(id >= 0 && capacity >= 0 && size >= 0, "valids value");
         Server s = new Server(id, capacity, size);
         addServer(s);
     }
