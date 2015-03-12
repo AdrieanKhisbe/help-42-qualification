@@ -20,7 +20,7 @@ targetCompatibility = langLevel
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8' // or prefer:  GRADLE_OPTS env var include “-Dfile.encoding=UTF-8”
 
 // ¤note: take mainClass property as argument, otherwise rely on default value
-// mainClassName = System.getenv('mainClass') ?: TOADD
+mainClassName = "fr.upmc.help42.Main"
 
 
 repositories {

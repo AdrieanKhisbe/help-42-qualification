@@ -12,6 +12,8 @@ public class DatacenterAllocation {
     List<ServerAllocation> servers;
     
     
+    
+    
     //FIXME: eval method
     private int score;
 
