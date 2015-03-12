@@ -1,6 +1,6 @@
 package fr.upmc.help42.object;
 
-public class Server {
+public class Server extends Location {
 	
 	private int id;
 	private int size;
