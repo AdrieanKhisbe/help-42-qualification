@@ -6,6 +6,7 @@ import fr.upmc.help42.io.SolutionSerializer;
 import fr.upmc.help42.problem.DatacenterAllocation;
 import fr.upmc.help42.problem.DatacenterAllocator;
 import fr.upmc.help42.problem.DatacenterRepresentation;
+import fr.upmc.help42.problem.solution1.Algo1;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +22,7 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
 
-    public static final String DEF_IN = "", DEF_OUT = "";
+    public static final String DEF_IN = "src/main/resources/data/dc.in", DEF_OUT = "res";
 
     public static void main(String args[]) throws Exception {
 
@@ -30,7 +31,7 @@ public class Main {
 
         problem = InputParser.readInput(inPath);
 
-        DatacenterAllocator resolver = null; //FIXME
+        DatacenterAllocator resolver = new Algo1(); //
 
         DatacenterAllocation solution = resolver.resolve(problem);
 

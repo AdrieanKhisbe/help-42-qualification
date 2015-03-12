@@ -3,8 +3,6 @@ package fr.upmc.help42.io;
 import com.google.common.primitives.Ints;
 import fr.upmc.help42.object.ServerAllocation;
 import fr.upmc.help42.problem.DatacenterAllocation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -24,7 +22,6 @@ public class SolutionSerializer {
     
     public static void serialize(String path, DatacenterAllocation solution) throws IOException{
         Path outPath = Paths.get(path);
-
 
         try (BufferedWriter bw = Files.newBufferedWriter(outPath);
              PrintWriter pw = new PrintWriter(bw);) {
