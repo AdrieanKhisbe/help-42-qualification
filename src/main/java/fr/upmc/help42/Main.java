@@ -20,17 +20,17 @@ public class Main {
     
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
-	
-	public static void main (String args[]) throws IOException {
-		
-        String inPath = null, outPath = null;
-		
-        //TODO: retrieve path form args.
+
+    public static final String DEF_IN = "", DEF_OUT = "";
+
+    public static void main(String args[]) throws Exception {
+
+        String inPath = args.length > 0 && args[0] != null ? args[0] : DEF_IN;
+        String outPath = args.length > 1 && args[1] != null ? args[1] : DEF_OUT;
+
         problem = InputParser.readInput(inPath);
-        
-        
-        //
-        DatacenterAllocator resolver=null;
+
+        DatacenterAllocator resolver = null; //FIXME
 
         DatacenterAllocation solution = resolver.resolve(problem);
 
