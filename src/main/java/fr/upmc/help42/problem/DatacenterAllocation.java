@@ -1,7 +1,9 @@
 package fr.upmc.help42.problem;
 
+import com.google.common.primitives.Ints;
 import fr.upmc.help42.object.ServerAllocation;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,9 +12,6 @@ import java.util.List;
 public class DatacenterAllocation {
 
     List<ServerAllocation> servers;
-    
-    
-    
     
     //FIXME: eval method
     private int score;
@@ -24,4 +23,11 @@ public class DatacenterAllocation {
     public List<ServerAllocation> getServers() {
         return servers;
     }
+
+    public void sort() {
+        Collections.sort(servers,
+                (ServerAllocation x, ServerAllocation y) -> Ints.compare(x.getServer().getId(), y.getServer().getId()));
+    }
+    
+    
 }

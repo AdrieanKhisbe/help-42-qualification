@@ -26,9 +26,7 @@ public class SolutionSerializer {
         try (BufferedWriter bw = Files.newBufferedWriter(outPath);
              PrintWriter pw = new PrintWriter(bw);) {
             List<ServerAllocation> servers = solution.getServers();
-            Collections.sort(servers, (ServerAllocation x, ServerAllocation y) -> {
-                return Ints.compare(x.getServer().getId(), y.getServer().getId());
-            });
+
             for (ServerAllocation serv : servers) {
                 if (serv.getGroup() < 0) {
                     pw.println("x");

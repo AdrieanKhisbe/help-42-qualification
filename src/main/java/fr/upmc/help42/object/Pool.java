@@ -3,6 +3,9 @@ package fr.upmc.help42.object;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Groupes de server
+ */
 public class Pool {
 	private int id;
 	private int minCapacity;
