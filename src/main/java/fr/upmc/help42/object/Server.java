@@ -5,7 +5,9 @@ public class Server extends Location {
 	private int id;
 	private int size;
 	private int capacity;
-	private Row myRow;
+
+
+    private Row myRow;
 	private Pool myPool;
 	
 	public Server(int id, int cap, int size){
