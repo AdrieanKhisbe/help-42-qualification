@@ -7,6 +7,6 @@ package fr.upmc.help42.problem;
  */
 public interface DatacenterAllocator {
     
-    DatacenterAllocation resolve(DatacenterRepresentation dc);
+    DatacenterAllocation resolve(DatacenterRepresentation dc) throws Exception;
     
 }
