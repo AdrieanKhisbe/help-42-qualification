@@ -1,0 +1,51 @@
+/*
+ * Hcode build
+ */
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+group = 'fr.upmc.help42'
+version = '1.0-SNAPSHOT'
+
+/** Configs */
+def langLevel = JavaVersion.VERSION_1_8
+
+sourceCompatibility = langLevel
+targetCompatibility = langLevel
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8' // or prefer:  GRADLE_OPTS env var include “-Dfile.encoding=UTF-8”
+
+// ¤note: take mainClass property as argument, otherwise rely on default value
+// mainClassName = System.getenv('mainClass') ?: TOADD
+
+
+repositories {
+    mavenCentral()
+    // maybe: maven local
+    jcenter()
+}
+
+/** Dépendances du projet */
+dependencies {
+
+    /* Expressivity */
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'com.google.guava:guava:18.0'
+
+    /* Logging  */
+    compile 'org.slf4j:slf4j-api:1.7.2'
+    runtime 'ch.qos.logback:logback-classic:1.0.9'
+    // ¤see: if more needed https://github.com/cedexis/webservices/blob/master/build.gradle
+
+    // testing
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.assertj:assertj-core:1.7.0'
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.2"
+}
