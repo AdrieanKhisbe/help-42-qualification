@@ -31,6 +31,5 @@ public class Pool {
 		
 		if (minCapacity > serv.getCapacity())
 			minCapacity = serv.getCapacity();
-		serv.setMyPool(this);
 	}
 }

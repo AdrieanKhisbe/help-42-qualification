@@ -1,10 +1,10 @@
 package fr.upmc.help42.problem.solution1;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import fr.upmc.help42.object.Pool;
 import fr.upmc.help42.object.Row;
 import fr.upmc.help42.object.Server;
 import fr.upmc.help42.object.UnavailableLocation;
@@ -71,8 +71,8 @@ public class Algo1 implements DatacenterAllocator {
 		}
 	}
 	
-	private void createGroup() {
-		
+	private void createGroup(int P) {
+		pools = new Pool[P];
 	}
 
 }
